@@ -164,66 +164,6 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.5rem;
-  }
-  
-  .hero-description {
-    font-size: 1.1rem;
-  }
-  
-  .hero-features {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Stack columns on small screens */
-  .hero-inner {
-    flex-direction: column-reverse;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .hero-content {
-    text-align: center;
-  }
-
-  .hero-image {
-    position: relative; /* make it normal flow on small screens */
-    width: 100%;
-    height: auto;
-    overflow: visible;
-  }
-
-  .hero-image img {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .hero-image::after {
-    /* reduce intensity on small screens */
-    background: linear-gradient(90deg, rgba(220,38,38,0.9) 0%, rgba(220,38,38,0.6) 30%, rgba(220,38,38,0.15) 55%, rgba(220,38,38,0) 85%);
-  }
-  
-  .hero-button {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -232,5 +172,69 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    /* Ajustamos la altura mínima para móvil si es necesario */
+    min-height: 80vh; 
+    padding-top: 40px; 
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    justify-content: center;
+    /* Quitamos el gap porque la imagen ya no ocupa un "espacio flex" */
+    gap: 0; 
+  }
+
+  .hero-content {
+    text-align: center; /* Centramos el texto en móvil */
+    padding: var(--spacing-md);
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-white); /* Mejoramos contraste en móvil */
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9); /* Texto blanco para que destaque sobre el fondo */
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .hero-buttons {
+    justify-content: center; /* Centramos el botón */
+  }
+
+  .hero-button {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  /* MANTENEMOS la imagen como fondo en móvil también */
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    object-position: center; /* Centramos la imagen en móvil */
+  }
+
+  /* Ajustamos el gradiente para móvil: 
+     En vez de venir de izquierda a derecha (90deg), 
+     hacemos que oscurezca más la imagen para que el texto centrado sea legible */
+  .hero-image::after {
+    background: rgba(140, 24, 24, 0.85); /* Un color sólido semi-transparente funciona mejor en móvil */
   }
 }

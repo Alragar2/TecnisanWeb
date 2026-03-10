@@ -56,3 +56,68 @@
 .header .navigation a:hover::after {
   width: 100%;
 }
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001; /* Para que quede por encima del menú desplegado */
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #dc2626;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Animación del botón hamburguesa a "X" */
+.mobile-menu-btn.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+.mobile-menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Media Query para Header */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .header .navigation {
+    position: fixed;
+    top: 70px; /* Ajusta según el alto de tu header */
+    left: -100%; /* Menú oculto fuera de la pantalla por la izquierda */
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    transition: left 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Cuando el menú está activo, lo deslizamos a la pantalla */
+  .header .navigation.active {
+    left: 0;
+  }
+
+  .header .navigation ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Más espacio entre enlaces en móvil */
+  }
+
+  .header .navigation a {
+    font-size: 1.5rem; /* Letra más grande en móvil */
+  }
+}
