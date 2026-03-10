@@ -1,0 +1,28 @@
+{
+  "name": "landing-page-template",
+  "version": "1.0.0",
+  "description": "A simple template for creating landing pages.",
+  "main": "src/main.jsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "nodemailer": "^8.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^7.2.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.0"
+  },
+  "keywords": [
+    "landing",
+    "template",
+    "react",
+    "vite"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

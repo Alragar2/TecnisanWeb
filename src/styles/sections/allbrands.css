@@ -1,0 +1,128 @@
+/* AllBrands Section - TV y Microondas */
+.allbrands-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  color: white;
+}
+
+.allbrands-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.allbrands-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.allbrands-item {
+  background: rgba(255, 255, 255, 0.721);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.allbrands-item:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.allbrands-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.allbrands-icon svg {
+  width: 40px;
+  height: 40px;
+  color: #dc2626;
+}
+
+.allbrands-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.allbrands-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: rgba(32, 32, 32, 0.977);
+}
+
+.allbrands-badge {
+  display: inline-block;
+  background: white;
+  color: #dc2626;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.allbrands-footer {
+  text-align: center;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.allbrands-footer p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.allbrands-footer strong {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .allbrands-section {
+    padding: 60px 15px;
+  }
+
+  .allbrands-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .allbrands-item {
+    padding: 30px;
+  }
+
+  .allbrands-title {
+    font-size: 1.6rem;
+  }
+
+  .allbrands-description {
+    font-size: 1rem;
+  }
+
+  .allbrands-footer p {
+    font-size: 1rem;
+  }
+
+  .allbrands-footer strong {
+    font-size: 1.2rem;
+  }
+}

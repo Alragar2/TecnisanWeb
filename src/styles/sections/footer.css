@@ -1,0 +1,29 @@
+/* Footer Styles */
+.footer {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: var(--text-white);
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  border-top: 4px solid #dc2626;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color var(--transition-base);
+}
+
+.footer-links a:hover {
+  color: #ef4444;
+}

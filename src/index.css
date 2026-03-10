@@ -1,0 +1,24 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Import core CSS files */
+@import './styles/variables.css';
+@import './styles/base.css';
+@import './styles/buttons.css';
+@import './styles/forms.css';
+@import './styles/animations.css';
+
+/* Import section-specific styles */
+@import './styles/sections/header.css';
+@import './styles/sections/footer.css';
+@import './styles/sections/hero.css';
+@import './styles/sections/features.css';
+@import './styles/sections/about.css';
+@import './styles/sections/pricing.css';
+@import './styles/sections/testimonials.css';
+@import './styles/sections/gallery.css';
+@import './styles/sections/faq.css';
+@import './styles/sections/contact.css';
+
+/* Import responsive styles (must be last) */
+@import './styles/responsive.css';

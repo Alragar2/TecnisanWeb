@@ -1,0 +1,133 @@
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select,
+.input,
+.textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 2px solid #e5e7eb;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  transition: all var(--transition-base);
+  background-color: var(--background-light);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus,
+.input:focus,
+.textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea,
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button[type="submit"],
+.subscribe-form button[type="submit"] {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  margin-top: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-form button[type="submit"]:hover,
+.subscribe-form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-form button[type="submit"]:active,
+.subscribe-form button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Subscribe Form Styles */
+.subscribe-form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.subscribe-form form {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.subscribe-form label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.subscribe-form input {
+  flex: 1;
+}
+
+.subscribe-form button {
+  width: auto;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.subscribe-form p {
+  color: var(--secondary-color);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+}
+
+/* Form validation styles */
+.form-group input:invalid,
+.form-group textarea:invalid {
+  border-color: #f87171;
+}
+
+.form-group input:valid,
+.form-group textarea:valid {
+  border-color: var(--secondary-color);
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-xs);
+}
+
+.success-message {
+  color: var(--secondary-color);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-xs);
+}

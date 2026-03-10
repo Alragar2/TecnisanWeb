@@ -1,0 +1,45 @@
+/* Features Section */
+.features {
+  background: var(--background-light);
+}
+
+.features h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.feature-item {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  text-align: center;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.feature-item h3 {
+  color: var(--text-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+.feature-item p {
+  color: var(--text-light);
+}
