@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: `"Web Contact" <${process.env.SMTP_USER}>`,
       to: process.env.DEST_EMAIL,
-      subject: `${subject} — ${name}`,
+      subject: `${name}`,
       text: `De: ${name} <${email}>\n\n${message}`,
       html: `<p><strong>De:</strong> ${name} &lt;${email}&gt;</p><p>${message}</p>`,
     });
