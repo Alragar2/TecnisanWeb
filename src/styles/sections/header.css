@@ -19,6 +19,10 @@
 }
 
 .header .logo h1 {
+  line-height: 1; /* Ajusta la altura de línea para que no empuje */
+  white-space: nowrap; /* Evita que el nombre se parta en dos líneas */
+}
+.header .logo h1 {
   font-size: var(--font-size-2xl);
   color: #dc2626;
   margin: 0;
@@ -114,10 +118,28 @@
   .header .navigation ul {
     flex-direction: column;
     align-items: center;
-    gap: 2rem; /* Más espacio entre enlaces en móvil */
+    gap: 2rem;
   }
 
   .header .navigation a {
-    font-size: 1.5rem; /* Letra más grande en móvil */
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header .container {
+    display: flex;
+    flex-direction: row; /* Forzamos dirección horizontal */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header .logo {
+    flex-shrink: 1;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    margin-left: auto; 
   }
 }

@@ -16,7 +16,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="logo">
-          <p>Tecnisan</p>
+          <h1>Tecnisan</h1>
         </div>
         
         {/* Botón hamburguesa (solo visible en móvil) */}
