@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Outlet, Navigate, Link, useNavigate, useLocation } from 'react-router-dom';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
-import { LayoutDashboard, LogOut, Package, Menu, X } from 'lucide-react';
+import { LayoutDashboard, LogOut, Package, Menu, X, MapPin } from 'lucide-react';
 import '../../pages/admin/AdminStyles.css';
 
 const AdminLayout = () => {
@@ -66,7 +66,16 @@ const AdminLayout = () => {
                 <span>Componentes</span>
               </Link>
             </li>
-            {/* Future tabs can go here */}
+            <li>
+              <Link 
+                to="/admin/ubicaciones" 
+                className={`admin-nav-item ${location.pathname === '/admin/ubicaciones' ? 'active' : ''}`}
+                onClick={() => setSidebarOpen(false)}
+              >
+                <MapPin size={20} />
+                <span>Ubicaciones</span>
+              </Link>
+            </li>
           </ul>
         </nav>
 

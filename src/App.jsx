@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Login from './pages/admin/Login';
 import Componentes from './pages/admin/Componentes';
+import Ubicaciones from './pages/admin/Ubicaciones';
 
 // Layouts
 import AdminLayout from './components/admin/AdminLayout';
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Componentes />} />
           <Route path="componentes" element={<Componentes />} />
+          <Route path="ubicaciones" element={<Ubicaciones />} />
         </Route>
       </Routes>
     </Router>
