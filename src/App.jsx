@@ -1,25 +1,31 @@
 import React from 'react';
-import Header from './components/common/Header';
-import Footer from './components/common/Footer';
-import Hero from './components/sections/Hero';
-import Brands from './components/sections/Brands';
-import AllBrands from './components/sections/AllBrands';
-import About from './components/sections/About';
-import FAQ from './components/sections/FAQ';
-import Contact from './components/sections/Contact';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Pages
+import LandingPage from './pages/LandingPage';
+import Login from './pages/admin/Login';
+import Componentes from './pages/admin/Componentes';
+
+// Layouts
+import AdminLayout from './components/admin/AdminLayout';
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <Hero />
-      <Brands />
-      <AllBrands />
-      <About />
-      <FAQ />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        {/* Public Route - Landing Page */}
+        <Route path="/" element={<LandingPage />} />
+
+        {/* Admin Login Route */}
+        <Route path="/admin/login" element={<Login />} />
+
+        {/* Protected Admin Routes */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Componentes />} />
+          <Route path="componentes" element={<Componentes />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 };
 
