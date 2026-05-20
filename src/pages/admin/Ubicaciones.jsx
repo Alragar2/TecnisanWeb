@@ -121,7 +121,21 @@ const Ubicaciones = () => {
   return (
     <div className="componentes-page">
       <div className="admin-header-actions" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-        <h2>Gestión de Estanterías</h2>
+        <h2 style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
+          Gestión de Estanterías
+          {!loading && (
+            <span style={{
+              fontSize: '0.9rem', 
+              background: 'rgba(59, 130, 246, 0.2)', 
+              color: 'var(--admin-accent)', 
+              padding: '4px 12px', 
+              borderRadius: '20px',
+              fontWeight: '500'
+            }}>
+              Total: {ubicaciones.length} aparatos
+            </span>
+          )}
+        </h2>
         <button onClick={handleCreateShelf} className="admin-btn primary" disabled={isCreatingShelf}>
           {isCreatingShelf ? <Loader size={18} className="spin"/> : <Layers size={18}/>} 
           <span>Crear Estantería</span>
