@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { collection, addDoc, getDocs, updateDoc, doc, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { Search, Plus, CheckCircle, Circle, Loader } from 'lucide-react';
+import { Search, Plus, CheckCircle, Circle, Loader, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
 import './AdminStyles.css';
 
 const Componentes = () => {
   const [componentes, setComponentes] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
+  const [sortOrder, setSortOrder] = useState('none'); // 'none', 'asc', 'desc'
   
   // Form state
   const [formData, setFormData] = useState({
@@ -82,12 +83,27 @@ const Componentes = () => {
   };
 
   // Filter components based on search term (ID Componente or Nº Parte)
-  const filteredComponentes = componentes.filter(comp => {
+  let filteredAndSorted = componentes.filter(comp => {
     const searchLower = searchTerm.toLowerCase();
     const idMatch = comp.idComponente?.toLowerCase().includes(searchLower);
     const numParteMatch = comp.numParte?.toLowerCase().includes(searchLower);
     return idMatch || numParteMatch;
   });
+
+  if (sortOrder !== 'none') {
+    filteredAndSorted.sort((a, b) => {
+      const partA = a.numParte?.toLowerCase() || '';
+      const partB = b.numParte?.toLowerCase() || '';
+      if (sortOrder === 'asc') return partA.localeCompare(partB);
+      else return partB.localeCompare(partA);
+    });
+  }
+
+  const toggleSort = () => {
+    if (sortOrder === 'none') setSortOrder('asc');
+    else if (sortOrder === 'asc') setSortOrder('desc');
+    else setSortOrder('none');
+  };
 
   return (
     <div className="componentes-page">
@@ -193,7 +209,7 @@ const Componentes = () => {
             <Loader className="spin" size={32} />
             <p>Cargando componentes...</p>
           </div>
-        ) : filteredComponentes.length === 0 ? (
+        ) : filteredAndSorted.length === 0 ? (
           <div className="empty-state">
             <p>No se encontraron componentes.</p>
           </div>
@@ -204,7 +220,18 @@ const Componentes = () => {
                 <tr>
                   <th>Estado</th>
                   <th>ID Componente</th>
-                  <th>Nº Parte</th>
+                  <th 
+                    onClick={toggleSort} 
+                    style={{cursor: 'pointer', userSelect: 'none'}}
+                    title="Clic para ordenar por Nº Parte"
+                  >
+                    <div style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
+                      Nº Parte
+                      {sortOrder === 'none' && <ArrowUpDown size={14} style={{opacity: 0.5}}/>}
+                      {sortOrder === 'asc' && <ArrowUp size={14} />}
+                      {sortOrder === 'desc' && <ArrowDown size={14} />}
+                    </div>
+                  </th>
                   <th>Fecha Pedido</th>
                   <th>Marca</th>
                   <th>Modelo</th>
@@ -212,7 +239,7 @@ const Componentes = () => {
                 </tr>
               </thead>
               <tbody>
-                {filteredComponentes.map((comp) => (
+                {filteredAndSorted.map((comp) => (
                   <tr key={comp.id} className={comp.llegado ? 'status-arrived' : 'status-pending'}>
                     <td className="status-cell">
                       <button 
