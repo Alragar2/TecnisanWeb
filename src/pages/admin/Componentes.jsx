@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { collection, addDoc, getDocs, updateDoc, doc, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc, updateDoc, deleteDoc, doc, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { Search, Plus, CheckCircle, Circle, Loader, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
+import { Search, Plus, CheckCircle, Circle, Loader, ArrowUpDown, ArrowUp, ArrowDown, Trash2 } from 'lucide-react';
 import './AdminStyles.css';
 
 const Componentes = () => {
@@ -79,6 +79,17 @@ const Componentes = () => {
       });
     } catch (error) {
       console.error("Error updating document: ", error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (window.confirm("¿Estás seguro de que quieres eliminar este componente? Esta acción no se puede deshacer.")) {
+      try {
+        await deleteDoc(doc(db, 'componentes', id));
+      } catch (error) {
+        console.error("Error deleting document: ", error);
+        alert("Error al eliminar el componente");
+      }
     }
   };
 
@@ -236,6 +247,7 @@ const Componentes = () => {
                   <th>Marca</th>
                   <th>Modelo</th>
                   <th>Descripción</th>
+                  <th style={{textAlign: 'center'}}>Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -257,6 +269,15 @@ const Componentes = () => {
                     <td>{comp.marca}</td>
                     <td>{comp.modelo}</td>
                     <td className="desc-cell">{comp.descripcion}</td>
+                    <td style={{textAlign: 'center'}}>
+                      <button 
+                        onClick={() => handleDelete(comp.id)}
+                        style={{background: 'none', border: 'none', color: 'var(--admin-danger)', cursor: 'pointer', padding: '5px'}}
+                        title="Eliminar Componente"
+                      >
+                        <Trash2 size={18} />
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
