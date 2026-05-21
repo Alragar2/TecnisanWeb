@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Outlet, Navigate, Link, useNavigate, useLocation } from 'react-router-dom';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
-import { LayoutDashboard, LogOut, Package, Menu, X, MapPin } from 'lucide-react';
+import { LayoutDashboard, LogOut, Package, Menu, X, MapPin, Boxes } from 'lucide-react';
 import '../../pages/admin/AdminStyles.css';
 
 const AdminLayout = () => {
@@ -74,6 +74,16 @@ const AdminLayout = () => {
               >
                 <MapPin size={20} />
                 <span>Ubicaciones</span>
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/admin/stock" 
+                className={`admin-nav-item ${location.pathname === '/admin/stock' ? 'active' : ''}`}
+                onClick={() => setSidebarOpen(false)}
+              >
+                <Boxes size={20} />
+                <span>Stock</span>
               </Link>
             </li>
           </ul>
