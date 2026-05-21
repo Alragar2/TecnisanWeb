@@ -138,8 +138,7 @@ const Componentes = () => {
                 type="text" 
                 name="marca" 
                 value={formData.marca} 
-                onChange={handleInputChange} 
-                required 
+                onChange={handleInputChange}
                 placeholder="Ej. Samsung"
               />
             </div>
@@ -149,8 +148,7 @@ const Componentes = () => {
                 type="text" 
                 name="modelo" 
                 value={formData.modelo} 
-                onChange={handleInputChange} 
-                required 
+                onChange={handleInputChange}
                 placeholder="Ej. Galaxy S21"
               />
             </div>
@@ -160,8 +158,7 @@ const Componentes = () => {
             <textarea 
               name="descripcion" 
               value={formData.descripcion} 
-              onChange={handleInputChange} 
-              required 
+              onChange={handleInputChange}
               placeholder="Descripción detallada del componente..."
               rows="3"
             ></textarea>
