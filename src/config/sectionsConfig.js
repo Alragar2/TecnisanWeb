@@ -23,13 +23,16 @@ const sectionsConfig = {
     formEndpoint: 'http://localhost:4000/api/contact',
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3661.441323830601!2d-0.3823752659373235!3d39.494333274293346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6045fb65be377d%3A0x9b6c2758d26b6ee4!2sTecnisan!5e0!3m2!1ses!2ses!4v1768036675657!5m2!1ses!2ses',
     openingHours: [
-      { days: 'Lun - Vie ', time: '9:00 – 13:30 / 17:00 – 19:00' }
+      { days: 'Junio', time: 'Lun-Jue 9:00–13:30 y 17:00–19:00 | Vie 9:00–14:00', highlight: true },
+      { days: 'Julio y Agosto', time: 'Lunes a Viernes 9:00–14:00', highlight: true },
+      { days: 'Vacaciones', time: 'Cerrado del 10 al 23 de agosto', alert: true },
+      { days: 'Horario Habitual', time: 'Lun-Vie 9:00–13:30 / 17:00–19:00' }
     ],
     phoneHours: 'Atención telefónica: Lunes–Viernes 9:00–13:30',
     whatsappHours: 'Atención por WhatsApp: Lunes–Viernes a partir de 18:30',
   },
   allBrands: {
-    title: "Reparación de Televisores y Microondas",
+    title: "Reparación de Televisores, Microondas y Robots de Cocina",
     subtitle: "Trabajamos con todas las marcas",
     services: [
       {
@@ -39,6 +42,10 @@ const sectionsConfig = {
       {
         name: "Microondas",
         description: "Reparación especializada de microondas de todas las marcas. Con o sin grill, combinados y empotrados.",
+      },
+      {
+        name: "Robots de Cocina",
+        description: "Reparamos fuera de garantía robots de cocina de las marcas Silver Crest (Lidl) y Thermomix.",
       },
     ],
   },

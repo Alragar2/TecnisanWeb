@@ -7,6 +7,7 @@ import AllBrands from '../components/sections/AllBrands';
 import About from '../components/sections/About';
 import FAQ from '../components/sections/FAQ';
 import Contact from '../components/sections/Contact';
+import WhatsAppButton from '../components/common/WhatsAppButton';
 
 const LandingPage = () => {
   return (
@@ -19,6 +20,7 @@ const LandingPage = () => {
       <FAQ />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

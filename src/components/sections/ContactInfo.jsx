@@ -10,7 +10,7 @@ const ContactInfo = ({ address, openingHours, phone, phoneHours, whatsapp, whats
           <h4>Horario</h4>
           <ul className="hours-list">
             {openingHours.map((h, i) => (
-              <li className="hours-item" key={i}>
+              <li className={`hours-item ${h.highlight ? 'hours-item-highlight' : ''} ${h.alert ? 'hours-item-alert' : ''}`} key={i}>
                 <span className="hours-day">{h.days}</span>
                 <span className="hours-time">{h.time}</span>
               </li>
