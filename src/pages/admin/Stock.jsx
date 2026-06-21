@@ -14,7 +14,8 @@ const Stock = () => {
     numParte: '',
     tipoPieza: '',
     cantidad: 1,
-    linkCompra: ''
+    linkCompra: '',
+    ubicacion: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -53,6 +54,7 @@ const Stock = () => {
         tipoPieza: formData.tipoPieza.trim(),
         cantidad: parseInt(formData.cantidad, 10) || 0,
         linkCompra: formData.linkCompra.trim(),
+        ubicacion: formData.ubicacion.trim(),
         createdAt: new Date().toISOString()
       });
       
@@ -61,7 +63,8 @@ const Stock = () => {
         numParte: '',
         tipoPieza: '',
         cantidad: 1,
-        linkCompra: ''
+        linkCompra: '',
+        ubicacion: ''
       });
     } catch (error) {
       console.error("Error adding stock item: ", error);
@@ -145,6 +148,16 @@ const Stock = () => {
                 required 
               />
             </div>
+            <div className="form-group" style={{flex: 1}}>
+              <label>Ubicación</label>
+              <input 
+                type="text" 
+                name="ubicacion" 
+                value={formData.ubicacion} 
+                onChange={handleInputChange}
+                placeholder="Ej. Estantería B, Cajón 3..."
+              />
+            </div>
             <div className="form-group" style={{flex: 2}}>
               <label>Enlace de Compra (Opcional)</label>
               <input 
@@ -196,6 +209,7 @@ const Stock = () => {
                 <tr>
                   <th>Identificador</th>
                   <th>Tipo de Pieza</th>
+                  <th>Ubicación</th>
                   <th style={{textAlign: 'center', width: '180px'}}>Cantidad en Stock</th>
                   <th style={{textAlign: 'center'}}>Comprar</th>
                   <th style={{textAlign: 'center'}}>Acciones</th>
@@ -206,6 +220,7 @@ const Stock = () => {
                   <tr key={item.id} style={{background: item.cantidad === 0 ? 'rgba(239, 68, 68, 0.05)' : 'transparent'}}>
                     <td className="font-medium">{item.numParte}</td>
                     <td>{item.tipoPieza}</td>
+                    <td>{item.ubicacion || <span style={{color: 'var(--admin-text-secondary)', fontStyle: 'italic'}}>-</span>}</td>
                     
                     {/* Quick Adjust Quantity Column */}
                     <td>

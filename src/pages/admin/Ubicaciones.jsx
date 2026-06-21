@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { collection, doc, setDoc, deleteDoc, onSnapshot, query, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { Search, Plus, Trash2, Loader, Archive, Layers } from 'lucide-react';
+import { Search, Plus, Trash2, Loader, Archive, Layers, X } from 'lucide-react';
 import './AdminStyles.css';
 
 const Ubicaciones = () => {
@@ -192,8 +192,23 @@ const Ubicaciones = () => {
             />
           </div>
           {searchedItem && (
-            <div className="search-result-highlight">
-              <strong>{searchedItem.numParte}</strong> está en: <span>{searchedItem.estanteria}</span>
+            <div className="search-result-highlight" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+              <div>
+                <strong>{searchedItem.numParte}</strong> está en: <span>{searchedItem.estanteria}</span>
+              </div>
+              <button 
+                onClick={() => handleDeleteItem(searchedItem.id)}
+                style={{
+                  background: 'rgba(239, 68, 68, 0.15)', border: 'none', color: '#fca5a5', cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  padding: '6px', borderRadius: '6px', transition: 'all 0.2s'
+                }}
+                onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(239, 68, 68, 0.3)'; e.currentTarget.style.color = '#fecaca'; }}
+                onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(239, 68, 68, 0.15)'; e.currentTarget.style.color = '#fca5a5'; }}
+                title="Quitar de la estantería"
+              >
+                <X size={18} />
+              </button>
             </div>
           )}
         </div>
@@ -249,8 +264,5 @@ const Ubicaciones = () => {
     </div>
   );
 };
-
-// Small hack to use X icon since we missed importing it
-import { X } from 'lucide-react';
 
 export default Ubicaciones;
